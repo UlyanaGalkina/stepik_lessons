@@ -2,4 +2,4 @@ input#user_name
 //input[@name='lastname']
 input.form-control.third-class
 //input[@telephone="telephone"]
-//input[contains(@class, "form-control fifth-class")]
+//input[@class="form-control fifth-class"]  # //input[contains(@class, "form-control fifth-class")]
