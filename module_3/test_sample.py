@@ -34,12 +34,13 @@ def test_registration_with_valid_data():
 
         browser.find_element_by_css_selector(registration_button_locator).click()
 
-        print("email -", registration_random_email, "password -", registration_password)
+        # логин и созданный пароль
+        # print("email -", registration_random_email, "password -", registration_password)
 
         # Assert
         registration_thank_message_text = browser.find_element_by_css_selector(registration_thank_message_locator)
         recieved_registration_thank_text = registration_thank_message_text.text
-        assert thank_for_registration_text in recieved_registration_thank_text, f"Page should contain {thank_for_registration_text} now contain {recieved_registration_thank_text} "
+        assert thank_for_registration_text == recieved_registration_thank_text, f"Page should contain {thank_for_registration_text} now contain {recieved_registration_thank_text} "
 
     finally:
         browser.quit()
