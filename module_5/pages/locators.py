@@ -27,6 +27,7 @@ class ProductPageLocators():
     BASKET_BUTTON = (By.CSS_SELECTOR, '.basket-mini>span>a')
     EMPTY_BASKET = (By.ID, "content_inner")
     BASKET_EMPTY_MESSAGE = (By.XPATH, '//div[@id="content_inner"]//p[contains(text(),"Your basket is empty.")]')
+    BASKET_SUCCESS_ALERT = (By.CSS_SELECTOR, '#messages .alert:nth-child(1)')
 
 # class BasketPageLocators():
 #     EMPTY_BASKET_TEXT = (By.CSS_SELECTOR, "#content_inner p")
@@ -48,3 +49,11 @@ class ProductPageLocators():
     #  = (By.CSS_SELECTOR, "#id_registration-password1")
     #  = (By.CSS_SELECTOR, "#id_registration-password2")
     #  = (By.NAME, "registration_submit")
+
+class BasketPageLocators(BasePageLocators):
+    BASKET_ALERT = (By.CSS_SELECTOR, '.alertinner')
+    BASKET_CONTENT = (By.CSS_SELECTOR, '.content > #content_inner')
+    BASKET_VIEW_BUTTON = (By.CSS_SELECTOR, '//*[@id="default"]/header/div[1]/div/div[2]/span/a')
+    BASKET_CHECKOUT_BUTTON = (By.CSS_SELECTOR, 'p:nth-child(2) >a:nth-child(2)')
+    BASKET_ORDER_TOTAL = (By.CSS_SELECTOR, '.total > .price_color')
+    BASKET_EMPTY_MESSAGE = (By.CSS_SELECTOR, '#content_inner > p:nth-child(1)')

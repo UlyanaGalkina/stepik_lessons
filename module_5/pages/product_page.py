@@ -2,7 +2,10 @@ from .base_page import BasePage
 from .locators import ProductPageLocators
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC, expected_conditions
-
+# from selenium.webdriver.common.by import
+# By from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+import pytest
 
 
 class ProductPage(BasePage):
@@ -54,3 +57,11 @@ class ProductPage(BasePage):
         price = self.get_price()
         price_message = self.get_price_from_message()
         assert price == price_message, 'Price are not same'
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.BASKET_SUCCESS_ALERT), \
+            'Success message is presented, but should not be'
+
+    def should_dissapear_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.BASKET_SUCCESS_ALERT), \
+            'Success message was presented, but dissapeared'
