@@ -3,8 +3,8 @@ import re
 from .base_page import BasePage
 from .locators import ProductPageLocators
 
-
 class ProductPage(BasePage):
+
     def __parse_price(self, where):
         price_text = self.browser.find_element(*where).text
         search_result = re.search(r"\d+.?\d*", price_text)
@@ -18,13 +18,10 @@ class ProductPage(BasePage):
         return (name, price)
 
     def check_product_to_basket_confirmed(self, name):
-        #Проверка наличие уведомления, что продукт добавлен в корзину,
-        #параметром принимает ожидаемое название продукта
         assert self.is_text_present_at(ProductPageLocators.URGENT_SUCCESS_MESSAGES, f"^{name}$"), \
           f"Отсутсвует подтверждение добавления в корзину, содержащее название продукта ({name})"
 
     def check_basket_cost(self, expected_cost):
-        # Проверка стоимость корзины соответствует ожиданию
         assert self.is_element_present(*ProductPageLocators.BASKET_MINI), \
             "Текущая цена корзины не найдена"
         cost = self.__parse_price(ProductPageLocators.PRODUCT_PRICE)

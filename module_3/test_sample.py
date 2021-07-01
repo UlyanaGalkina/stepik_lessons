@@ -33,6 +33,7 @@ def test_registration_with_valid_data():
         registration_repeat_password_input.send_keys(registration_password)
 
         browser.find_element_by_css_selector(registration_button_locator).click()
+        browser.implicitly_wait(5)
 
         # логин и созданный пароль
         # print("email -", registration_random_email, "password -", registration_password)

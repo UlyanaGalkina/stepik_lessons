@@ -3,12 +3,12 @@ from selenium.webdriver.common.by import By
 from sys import argv
 import time
 
-script_name, link = argv
+# script_name, link = argv
 
 try:
     browser = webdriver.Chrome()
-    # browser.get("http://suninjuly.github.io/registration1.html")
-    browser.get(link)
+    browser.get("http://suninjuly.github.io/registration1.html")
+    # browser.get(link)
 
     # Ваш код, который заполняет обязательные поля
     input1 = browser.find_element(By.XPATH, "//input[@placeholder='Input your first name']")

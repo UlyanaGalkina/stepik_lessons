@@ -12,4 +12,4 @@ class BasketPage(BasePage):
         assert self.is_not_element_present(*BasketPageLocators.BASKET_ITEMS), \
           "В корзине уже есть продукты, хотя это не ожидается"
         assert self.is_text_present_at(BasketPageLocators.CONTENT, "Your basket is empty"), \
-          "Отсутствует сообщение о том, что корзина пуста"
+          "Отсутсвует сообщение о том, что корзина пуста"
